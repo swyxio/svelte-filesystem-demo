@@ -1,38 +1,36 @@
-# create-svelte
+# Svelte Filesystem Proof of concept
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+This is Quick POC of [an idea i had](https://twitter.com/swyx/status/1396005314227539968): what if you could edit Svelte components in place in the browser — using the File System Access API!
 
-## Creating a project
+What if we didn't have to mentally map our source code rendered content? Just click on component, source pops up, we edit, save. **No IDE needed!**
 
-If you're seeing this, you've probably already done this step. Congrats!
+> note: this idea works only in development - which makes sense if you think about it
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## usage
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install
+npm run dev -- --open # localhost 
 ```
 
-## Building
+- Click button to open `Comp.svelte` - you will have to navigate there yourself until [this PR lands](https://github.com/WICG/file-system-access/pull/287)
+- try making edits the source
+- then hit the save button
+- see it hot reload thanks to Vite/SvelteKit. 
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+You now have a self-editing component!
 
-```bash
-npm run build
-```
+## notes on filesystem access api
 
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+its still too clunky - you HAVE to use `showOpenFilePicker` right now to load a file. 
+
+Ideally we can just give a known filepath and construct the `FileSystemFileHandle` ourselves, but this is currently impossible. 
+
+if it were, we could then instrument svelte's rollup/webpack loader to expose filepath info to every component so that we can figure out which component to open (or offer a menu of them) instead of having the user navigate to there.
+
+- basic reading: https://web.dev/file-system-access/
+- spec: https://wicg.github.io/file-system-access/#api-filpickeroptions-types
+- key PR: https://github.com/WICG/file-system-access/pull/287
+- potential polyfills
+    - https://browser-fs-access.glitch.me/
+    - https://github.com/jimmywarting/native-file-system-adapter/
