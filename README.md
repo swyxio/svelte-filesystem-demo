@@ -6,6 +6,12 @@ What if we didn't have to mentally map our source code rendered content? Just cl
 
 > note: this idea works only in development - which makes sense if you think about it
 
+
+https://user-images.githubusercontent.com/6764957/120790682-d9b7c400-c565-11eb-9580-740279005543.mp4
+
+
+[see tweet responses](https://twitter.com/swyx/status/1400764771520040963)
+
 ## usage
 
 ```bash
