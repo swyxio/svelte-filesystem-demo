@@ -19,9 +19,9 @@ npm install
 npm run dev -- --open # localhost 
 ```
 
-- Click button to open `Comp.svelte` - you will have to navigate there yourself until [this PR lands](https://github.com/WICG/file-system-access/pull/287)
+- Click `load` button to open `src/components/Comp.svelte` - you will have to navigate there yourself until [this PR lands](https://github.com/WICG/file-system-access/pull/287)
 - try making edits the source
-- then hit the save button
+- then hit the `save` button
 - see it hot reload thanks to Vite/SvelteKit. 
 
 You now have a self-editing component!
