@@ -26,6 +26,11 @@ npm run dev -- --open # localhost
 
 You now have a self-editing component!
 
+## possible extensions
+
+- mouseover components and cmd+click to open up their source (may have to choose from a list - use event bubbling to identify the list of components?)
+- embed Monaco instance for better editing (like this https://github.com/sw-yx/svelte-zen-garden) - currently i only use `<pre contenteditable>` which is janky af
+
 ## notes on filesystem access api
 
 its still too clunky - you HAVE to use `showOpenFilePicker` right now to load a file. 
