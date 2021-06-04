@@ -30,7 +30,7 @@ You now have a self-editing component!
 
 its still too clunky - you HAVE to use `showOpenFilePicker` right now to load a file. 
 
-Ideally we can just give a known filepath and construct the `FileSystemFileHandle` ourselves, but this is currently impossible. 
+Ideally we can just give a known filepath and construct the `FileSystemFileHandle` ourselves, but this is currently impossible. i've [opened an issue here](https://github.com/WICG/file-system-access/issues/301).
 
 if it were, we could then instrument svelte's rollup/webpack loader to expose filepath info to every component so that we can figure out which component to open (or offer a menu of them) instead of having the user navigate to there.
 
